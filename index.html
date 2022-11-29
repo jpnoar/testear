@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <a-marker preset="hiro">
+
+            <a-entity
+            position="0 0 0"
+            scale="0.3 0.3 0.3"
+            gltf-model="cinturaoallen.gltf"
+            ></a-entity>
+
+            <a-entity
+            position="0 0.6 0"
+            scale="0.02 0.02 0.02"
+            gltf-model="terra2.gltf"
+            animation="property: rotation; dur: 7000; to: 0 360 0; loop: true"
+            ></a-entity>
+
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
