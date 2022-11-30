@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  </head>
-  <body>
-    <a-scene>
-        <a-marker preset="hiro">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    body{
+        background-color: black;
+    }
 
-            <a-entity
-            position="0 0 0"
-            scale="0.3 0.3 0.3"
-            gltf-model="cinturaoallen.gltf"
-            ></a-entity>
+    .frame{
+        border: none;
+        width: 60vw;
+        height: 100vh;
+        border-radius: 50%;
+        margin: 18px;
+    }
+    
+    
+  .flex-items{
+    display: flex;
+    justify-content: center;
+  }
+    
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+</style>
+<body>
+    
+    <button onclick="openFullscreen();" id="botao">Tela cheia</button>
+    <div class="flex-container">
+   <div class="flex-items"><iframe scrolling="no" class="frame" src="irisoriginial.html"></iframe></div>
+   <div class="flex-items"><iframe scrolling="no" class="frame" src="irisoriginial.html"></iframe></div>
+</div>
+    
+<script>
+    var elem = document.documentElement;
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+      document.getElementById("botao").style.display = "none";
+    }
+    </script>
 
-            <a-entity
-            position="0 0.6 0"
-            scale="0.02 0.02 0.02"
-            gltf-model="terra2.gltf"
-            animation="property: rotation; dur: 7000; to: 0 360 0; loop: true"
-            ></a-entity>
-
-        </a-marker>
-        <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+</body>
 </html>
